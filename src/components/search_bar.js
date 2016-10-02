@@ -17,8 +17,8 @@ import React, { Component } from 'react';
 // It is similar to like const Component = React.Component
 // If we don't use that curly braces syntax in import for Component then while defining class we have to use 'extends React.Component'
 
-//!IMPORTANT TIP: Whenever in doubt to understand state add 'Value Of the Input = {this.state.term} on line 34'
-//!IMPORTANT NOTE: Whenever referencing javascript variable inside JSX, always wrap it inside curly braces like on line 34
+//!IMPORTANT TIP: Whenever in doubt to understand state add 'Value Of the Input = {this.state.term} on line 36'
+//!IMPORTANT NOTE: Whenever referencing javascript variable inside JSX, always wrap it inside curly braces like on line 34 and 36
 
 class SearchBar extends Component {
     constructor(props){
@@ -30,7 +30,10 @@ class SearchBar extends Component {
     render () {
         return (
             <div>
-                <input onChange={event => this.setState({ term: event.target.value })} />;
+                <input
+                    value={this.state.term}
+                    onChange={event => this.setState({ term: event.target.value })} />;
+
             </div>
             );
 
