@@ -30,14 +30,37 @@ class SearchBar extends Component {
     render () {
         return (
             <div>
-                <input
-                    value={this.state.term}
-                    onChange={event => this.setState({ term: event.target.value })} />;
+                <div className="search-bar">
+                    <input
+                        value={this.state.term}
+                        onChange={(event) => {
+                            this.onInputChange(event.target.value)
+                        }} />
+                    <button className="btn btn-primary btn-sm search" onClick={() => {this.searchVideo(this.state.term)}}> Search </button>
+                </div>
+
 
             </div>
             );
 
     }
+    onInputChange(term){
+        this.setState({term: term});
+        //this.props.onSearchTermChange(term);
+    }
+    searchVideo(term){
+        console.log("Term: " + term);
+        this.props.onSearchTermChange(term);
+    }
+
+    /*
+    onKeyPress = {this.keychange}
+
+    keypress(e){
+    if(e.key=== 'Enter')
+
+
+     */
 
     //delete the handler
     // onInputChange(event){
